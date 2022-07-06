@@ -1,0 +1,28 @@
+--Create a tool store database
+
+CREATE TABLE tool_store (id INTEGER PRIMARY KEY, name TEXT, section TEXT, price INTEGER, shipping_cost INTEGER, weight INTEGER);
+
+INSERT INTO tool_store VALUES (1, "table saw", "machinery", 2200, 450, 250);
+INSERT INTO tool_store VALUES (2, "planer", "machinery", 450, 45, 75);
+INSERT INTO tool_store VALUES (3, "router", "power tools", 125, 15, 5);
+INSERT INTO tool_store VALUES (4, "drum sander", "machinery", 1250, 250, 425);
+INSERT INTO tool_store VALUES (5, "mitre saw", "power tools", 399, 40, 90);
+INSERT INTO tool_store VALUES (6, "cordless drill", "power tools", 229, 10, 15);
+INSERT INTO tool_store VALUES (7, "wrench", "hand tools", 100, 5, 1);
+INSERT INTO tool_store VALUES (8, "screwdriver", "hand tools", 9, 2, 1);
+INSERT INTO tool_store VALUES (9, "hammer", "hand tools", 25, 2, 3);
+INSERT INTO tool_store VALUES (10, "tape measure", "hand tools", 16, 2, 0.5);
+INSERT INTO tool_store VALUES (11, "safety glasses", "PPE", 25, 1, 1);
+INSERT INTO tool_store VALUES (12, "dust collection", "machinery", 950, 35, 75);
+INSERT INTO tool_store VALUES (13, "jig saw", "power tools", 115, 10, 4);
+INSERT INTO tool_store VALUES (14, "speed square", "hand tools", 15, 1, 1);
+INSERT INTO tool_store VALUES (15, "drill press", "machinery", 225, 30, 45);
+
+--Display the database  ordered by price
+SELECT * FROM tool_store WHERE price ORDER BY price;
+
+--What is the average price of machinery
+SELECT AVG(price) "avg machinery price" FROM tool_store WHERE section='machinery';
+
+--What are the 5 most expensive items
+SELECT name, price, section FROM tool_store ORDER BY price desc limit 5;
